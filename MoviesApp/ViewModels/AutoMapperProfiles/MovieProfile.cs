@@ -1,5 +1,6 @@
 ﻿using MoviesApp.Models;
 using AutoMapper;
+using MoviesApp.ViewModels.MoviesViewModels;
 
 namespace MoviesApp.ViewModels.AutoMapperProfiles
 {
