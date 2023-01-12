@@ -1,4 +1,4 @@
-namespace MoviesApp.ViewModels
+namespace MoviesApp.ViewModels.MoviesViewModels
 {
     public class DeleteMovieViewModel:InputMovieViewModel
     {

@@ -67,9 +67,4 @@
       </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="ViewModels\ActorsViewModels" />
-      <Folder Include="ViewModels\MoviesViewModels" />
-    </ItemGroup>
-
 </Project>

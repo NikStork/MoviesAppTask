@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MoviesApp.ViewModels
+namespace MoviesApp.ViewModels.MoviesViewModels
 {
     public class InputMovieViewModel
     {
