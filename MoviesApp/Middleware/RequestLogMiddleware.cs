@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -23,17 +24,16 @@ namespace MoviesApp.Middleware
 
                 if (onActors)
                 {
-                    logger.LogTrace($"Request: {httpContext.Request.Path}  Method: {httpContext.Request.Method}");
-                    
-                    if (httpContext.Request.Method == HttpMethod.Post.Method)
-                    {
-                        var form = httpContext.Request.Form;
-                        
-                        foreach (var obj in form)
-                        {
-                            logger.LogTrace($"Key obj: {obj.Key} -> Value obj: {obj.Value}");
-                        }
-                    }
+                    logger.LogTrace($"Request: {httpContext.Request.Path}  Method: {httpContext.Request.Method}\n" +
+                                    $"\tContentType: {httpContext.Request.ContentType}\n" +
+                                    $"\tContentLength: {httpContext.Request.ContentLength}\n" +
+                                    $"\tHost: {httpContext.Request.Host.Value}\n" +
+                                    $"\tProtocol: {httpContext.Request.Protocol}\n" +
+                                    $"\tCookies: {httpContext.Request.Cookies.Select(pairK => (pairK.Key, pairK.Value))}\n" +
+                                    $"\tHasFormContentType: {httpContext.Request.HasFormContentType}\n" +
+                                    $"\tScheme: {httpContext.Request.Scheme}\n" +
+                                    $"\tRouteValues: {httpContext.Request.RouteValues.Select(pairK => (pairK.Key, pairK.Value))}\n" +
+                                    $"\tPathBase: {httpContext.Request.PathBase.Value}\n\n");
                 }
                 
                 await _next(httpContext);
