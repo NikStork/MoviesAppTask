@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MoviesApp.Data;
+using MoviesApp.Filters;
 using MoviesApp.Models;
 using MoviesApp.ViewModels;
 using MoviesApp.ViewModels.MoviesViewModels;
