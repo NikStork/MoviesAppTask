@@ -1,4 +1,4 @@
-# MoviesAppTask
+# <span style="color: green">**_Course work on the discipline "Web application development"_**</span>
 ### Выполнил: Филоненко Никита УВП-311
 ## HomePage
 ![image](https://user-images.githubusercontent.com/103507130/212537741-64e4db2f-3eb2-4136-8dd1-226f9b882186.png)
