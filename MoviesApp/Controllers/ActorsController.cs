@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,7 @@ public class ActorsController : Controller
     
     // GET: Actors
     [HttpGet]
+    [Authorize]
     public IActionResult Index()
     {
         return View(dmMapper.Map<IEnumerable<Actors>, IEnumerable<ActorViewModel>>(dmContext.Actors.ToList()));
@@ -34,6 +36,7 @@ public class ActorsController : Controller
 
     // GET: Actors/Create
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
         return View();
@@ -41,6 +44,7 @@ public class ActorsController : Controller
     
     // POST: Actors/Create
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     [ValidateAntiForgeryToken]
     [ActorAcceptableAge]
     public IActionResult Create([Bind("FirstName,LastName,BirthDate")] InputActorViewModel inputModel)
@@ -56,6 +60,7 @@ public class ActorsController : Controller
     }
     
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     // GET: Actors/Edit/5
     public IActionResult Edit(int? id)
     {
@@ -76,6 +81,7 @@ public class ActorsController : Controller
     
     // POST: Actors/Edit/5
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     [ValidateAntiForgeryToken]
     [ActorAcceptableAge]
     public IActionResult Edit(int id, [Bind("FirstName,LastName,BirthDate")] EditActorViewModel editModel)
@@ -107,6 +113,7 @@ public class ActorsController : Controller
     }
     
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     // GET: Actors/Delete/5
     public IActionResult Delete(int? id)
     {
@@ -127,6 +134,7 @@ public class ActorsController : Controller
     
     // GET: Actors/Details/5
     [HttpGet]
+    [Authorize]
     public IActionResult Details(int? id)
     {
         if (id == null)
@@ -146,6 +154,7 @@ public class ActorsController : Controller
         
     // POST: Actors/Delete/5
     [HttpPost, ActionName("Delete")]
+    [Authorize(Roles = "Admin")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteConfirmed(int id)
     {
